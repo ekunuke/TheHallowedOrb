@@ -1,0 +1,4 @@
+bin
+obj
+gmon.out
+*.depend
