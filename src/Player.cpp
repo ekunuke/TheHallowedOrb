@@ -258,6 +258,7 @@ void Player::collideEntity(Entity* other)
                                          x + rand()%(int)w,
                                          y + rand()%(int)h, Particle::PARTICLE_HEALTH));
         }
+        showHealthTimer = 60;
     }
     else if(other->entityType == TYPE_PEDESTAL)
     {
@@ -361,11 +362,11 @@ void Player::drawPowerIndicator(sf::RenderWindow& window)
 
     for(int i = 0; i < MAX_POWER; i+=10)
     {
-        backBox.setPosition(x - 7 + 3 * (i/10), y - 6);
+        backBox.setPosition(x - 5 + 3 * (i/10), y - 6);
         window.draw(backBox);
         if(i < power)
         {
-            tickBox.setPosition(x - 6 + 3 * (i/10), y - 5);
+            tickBox.setPosition(x - 4 + 3 * (i/10), y - 5);
             window.draw(tickBox);
         }
     }

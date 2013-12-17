@@ -155,7 +155,7 @@ void Projectile::collideEntity(Entity* other)
         stuck = true;
         dx *= -1;
         dy *= -1;
-        level.shake(5, 2 * (combo+1));
+        level.shake(5, 3 * (combo+1));
         if(other->shield)
         {
             hit = true;
