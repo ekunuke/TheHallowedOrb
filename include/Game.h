@@ -68,7 +68,7 @@ class Game
         void doInput();
         void handleBossMusicFade();
 
-        static const int WAVE_COOLDOWN_TIME = 6 * 60;
+        static const int WAVE_COOLDOWN_TIME = 3 * 60;
         static const int DEATH_ANIM_TIME = 120; // 2 second
         static const int GAME_START_TIME = 60; // 2 second
         static const int CONFIGURE_EXIT_TIME = 60; // 2 second

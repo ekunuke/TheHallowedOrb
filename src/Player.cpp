@@ -10,8 +10,8 @@ const float Player::JUMP_SPEED = 2;
 const float Player::JUMP_ACCEL_SPEED = 0.16;
 const int Player::JUMP_ACCEL_FRAMES = 12;
 const float Player::MAX_ARROW_SPEED = 6;
-const int Player::MAX_POWER = 60;
-const int Player::STARTING_HEALTH = 6;
+const int Player::MAX_POWER = 45;
+const int Player::STARTING_HEALTH = 5;
 const int Player::SHOW_HEALTH_TIME = 120;
 const int Player::INVINCIBLE_FRAMES = 90;
 
@@ -236,6 +236,11 @@ void Player::collideEntity(Entity* other)
         {
             proj->die = true;
             hasArrow = true;
+            for(unsigned i = 0; i < 10; i++)
+            {
+                level.addEntity(new Particle(level, x + rand()%(int)(w), y + rand()%(int)(h), Particle::PARTICLE_BLUE));
+                level.addEntity(new Particle(level, x + rand()%(int)(w), y + rand()%(int)(h), Particle::PARTICLE_DEEP_BLUE));
+            }
         }
     }
     else if(other->enemy)

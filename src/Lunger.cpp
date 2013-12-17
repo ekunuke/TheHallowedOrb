@@ -4,7 +4,7 @@
 const float Lunger::WIDTH = 6;
 const float Lunger::HEIGHT = 13;
 const float Lunger::ACCEL_RATE = 0.1;
-const float Lunger::MOVE_SPEED = 1;
+const float Lunger::MOVE_SPEED = 1.1;
 const float Lunger::LUNGE_SPEED = 3;
 
 Lunger::Lunger(Level& level, float x, float y):

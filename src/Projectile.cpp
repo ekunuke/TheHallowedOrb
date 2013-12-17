@@ -64,7 +64,7 @@ void Projectile::step()
         if(landedDown)
         {
             finishCombo();
-            dx *= 0.8;
+            dx *= 0.85;
         }
         else
         {
@@ -121,7 +121,12 @@ void Projectile::step()
             level.addEntity(new Particle(level, x + rand()%(int)(w), y + h + 1, Particle::PARTICLE_BLUE));
         }
     }
+    float prevDx = dx;
     collideLevel();
+    if(landedLeft || landedRight)
+    {
+        dx = prevDx * -0.9;
+    }
     if(landedDown || landedLeft || landedRight || landedUp)
     {
         stuck = true;

@@ -48,7 +48,7 @@ void Bouncy::collideEntity(Entity* other)
     if(other->dy >= 0)
     {
         ResourceManager::playSound("bounce.wav");
+        other->dy = -6;
+        showBounceTimer = 10;
     }
-    other->dy = -6;
-    showBounceTimer = 10;
 }

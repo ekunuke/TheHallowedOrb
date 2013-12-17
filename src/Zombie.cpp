@@ -4,7 +4,7 @@
 const float Zombie::WIDTH = 6;
 const float Zombie::HEIGHT = 13;
 const float Zombie::ACCEL_RATE = 0.1;
-const float Zombie::MOVE_SPEED = 1;
+const float Zombie::MOVE_SPEED = 1.1;
 
 Zombie::Zombie(Level& level, float x, float y):
     Entity(level, TYPE_ZOMBIE, x, y, WIDTH, HEIGHT),

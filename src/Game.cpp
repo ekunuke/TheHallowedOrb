@@ -172,19 +172,19 @@ void Game::doWaveLogicB()
     }
     if(waveTimer % (360) == 0)
     {
-        level.addEntity(new Zombie(level, (1 * Tile::TILE_SIZE),
-                                          (17 * Tile::TILE_SIZE)));
-        level.addEntity(new Zombie(level, (23 * Tile::TILE_SIZE),
-                                          (17 * Tile::TILE_SIZE)));
         if(left)
         {
             level.addEntity(new Flyer(level, (23 * Tile::TILE_SIZE),
                                               (1 * Tile::TILE_SIZE)));
+            level.addEntity(new Zombie(level, (23 * Tile::TILE_SIZE),
+                                            (17 * Tile::TILE_SIZE)));
         }
         else if(!left)
         {
             level.addEntity(new Flyer(level, (1 * Tile::TILE_SIZE),
                                               (1 * Tile::TILE_SIZE)));
+            level.addEntity(new Zombie(level, (1 * Tile::TILE_SIZE),
+                                            (17 * Tile::TILE_SIZE)));
         }
         left = !left;
     }
@@ -207,14 +207,14 @@ void Game::doWaveLogicC()
         spawnLocations.push_back({23 * Tile::TILE_SIZE, 17 * Tile::TILE_SIZE});
         spawnLocations.push_back({12 * Tile::TILE_SIZE, 17 * Tile::TILE_SIZE});
     }
-    if(waveTimer % (120) == 0)
+    if(waveTimer % (240) == 0)
     {
         level.addEntity(new Zombie(level, (1 * Tile::TILE_SIZE),
                                           (17 * Tile::TILE_SIZE)));
         level.addEntity(new Zombie(level, (23 * Tile::TILE_SIZE),
                                           (17 * Tile::TILE_SIZE)));
     }
-    if(waveTimer%(180) == 0)
+    if(waveTimer%(300) == 0)
     {
         level.addEntity(new Lunger(level, (12 * Tile::TILE_SIZE),
                                           (17 * Tile::TILE_SIZE)));
@@ -223,7 +223,7 @@ void Game::doWaveLogicC()
     {
         level.addEntity(new Powerup(level, 12.5 * Tile::TILE_SIZE - 3, 10 * Tile::TILE_SIZE));
     }
-    if(waveTimer > 60 * 15)
+    if(waveTimer > 60 * 16)
     {
         allWaveEnemiesSpawned = true;
     }
@@ -943,7 +943,7 @@ void Game::configureDraw(sf::RenderWindow& window, bool drawFalling)
         else if((int)i == input.currentlyBinding && input.controllerChosen)
         {
 
-            keyForeGround.setSize({200 * (input.bindTimer / (float)Input::BIND_TIME), 20});
+            keyForeGround.setSize({200 * powf((input.bindTimer / (float)Input::BIND_TIME), 1.5), 20});
             window.draw(keyForeGround);
             if(i == 0)
             {
